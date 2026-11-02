@@ -1,0 +1,6 @@
+{
+  "name": "ذِكرى Zekra — هدايا للمخطوبين ومن يحبّون",
+  "description": "Zekra — thoughtful, engraved gifts and keepsakes for engaged couples in Egypt.",
+  "permissions": [],
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,129 @@
+{
+  "entities": {
+    "Category": {
+      "title": "Category",
+      "description": "Product collection category",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "slug": { "type": "string" },
+        "name_ar": { "type": "string" },
+        "name_en": { "type": "string" },
+        "sort": { "type": "number" }
+      },
+      "required": ["slug", "name_ar", "name_en", "sort"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "Store gift item with variants and personalization settings",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "slug": { "type": "string" },
+        "category_id": { "type": "string" },
+        "name_ar": { "type": "string" },
+        "name_en": { "type": "string" },
+        "description_ar": { "type": "string" },
+        "description_en": { "type": "string" },
+        "price": { "type": "number" },
+        "compare_at_price": { "type": "number" },
+        "stock": { "type": "number" },
+        "images": { "type": "array" },
+        "featured": { "type": "boolean" },
+        "bestseller": { "type": "boolean" },
+        "sales_count": { "type": "number" },
+        "allow_engraving": { "type": "boolean" },
+        "engraving_price": { "type": "number" },
+        "active": { "type": "boolean" },
+        "product_variants": { "type": "array" },
+        "created_at": { "type": "string" }
+      },
+      "required": ["slug", "name_ar", "name_en", "price", "stock"]
+    },
+    "ShippingRate": {
+      "title": "ShippingRate",
+      "description": "Governorate delivery fee and estimated delivery time",
+      "type": "object",
+      "properties": {
+        "governorate": { "type": "string" },
+        "name_ar": { "type": "string" },
+        "fee": { "type": "number" },
+        "eta_days": { "type": "string" }
+      },
+      "required": ["governorate", "name_ar", "fee", "eta_days"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Guest customer gift store order",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "order_code": { "type": "string" },
+        "tracking_token": { "type": "string" },
+        "contact_name": { "type": "string" },
+        "contact_phone": { "type": "string" },
+        "contact_email": { "type": "string" },
+        "governorate": { "type": "string" },
+        "city": { "type": "string" },
+        "street": { "type": "string" },
+        "address_notes": { "type": "string" },
+        "gift_wrap": { "type": "boolean" },
+        "greeting_card": { "type": "boolean" },
+        "gift_message": { "type": "string" },
+        "payment_method": { "type": "string" },
+        "status": { "type": "string" },
+        "subtotal": { "type": "number" },
+        "extras_total": { "type": "number" },
+        "shipping_fee": { "type": "number" },
+        "total": { "type": "number" },
+        "created_at": { "type": "string" },
+        "updated_at": { "type": "string" }
+      },
+      "required": [
+        "order_code",
+        "tracking_token",
+        "contact_name",
+        "contact_phone",
+        "governorate",
+        "city",
+        "street",
+        "status",
+        "subtotal",
+        "total"
+      ]
+    },
+    "Admin": {
+      "title": "Admin",
+      "description": "Administrator account with management permissions",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string" }
+      },
+      "required": ["uid", "email", "role"]
+    }
+  },
+  "firestore": {
+    "/categories/{categoryId}": {
+      "schema": "Category",
+      "description": "Store categories"
+    },
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Store products and stock"
+    },
+    "/shipping_rates/{rateId}": {
+      "schema": "ShippingRate",
+      "description": "Delivery rates per governorate"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Customer orders and live tracking state"
+    },
+    "/admins/{adminId}": {
+      "schema": "Admin",
+      "description": "Authorized administrators"
+    }
+  }
+}

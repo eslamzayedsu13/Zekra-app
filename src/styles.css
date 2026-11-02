@@ -1,0 +1,385 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Zekra design system — editorial quiet luxury.
+ * Warm ivory paper, charcoal ink, dusty rose and muted sage accents.
+ * All colors are oklch. Never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: var(--radius);
+  --radius-xl: 6px;
+  --radius-2xl: 8px;
+  --radius-3xl: 10px;
+  --radius-4xl: 12px;
+  --font-display: var(--font-display-face);
+  --font-sans: var(--font-body-face);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-rose: var(--rose);
+  --color-rose-deep: var(--rose-deep);
+  --color-rose-soft: var(--rose-soft);
+  --color-sage: var(--sage);
+  --color-sage-soft: var(--sage-soft);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 4px;
+  --font-display-face: "Amiri", "Cormorant Garamond", serif;
+  --font-body-face: "IBM Plex Sans Arabic", "Manrope", system-ui, sans-serif;
+
+  --background: oklch(0.973 0.011 84);
+  --paper: oklch(0.985 0.008 85);
+  --foreground: oklch(0.25 0.008 60);
+  --ink: oklch(0.22 0.006 60);
+  --card: oklch(0.985 0.008 85);
+  --card-foreground: oklch(0.25 0.008 60);
+  --popover: oklch(0.985 0.008 85);
+  --popover-foreground: oklch(0.25 0.008 60);
+  --primary: oklch(0.26 0.008 60);
+  --primary-foreground: oklch(0.973 0.011 84);
+  --secondary: oklch(0.945 0.014 80);
+  --secondary-foreground: oklch(0.26 0.008 60);
+  --muted: oklch(0.948 0.013 80);
+  --muted-foreground: oklch(0.5 0.012 65);
+  --accent: oklch(0.93 0.02 30);
+  --accent-foreground: oklch(0.3 0.03 25);
+  --rose: oklch(0.7 0.055 22);
+  --rose-deep: oklch(0.52 0.07 20);
+  --rose-soft: oklch(0.93 0.022 30);
+  --sage: oklch(0.64 0.04 140);
+  --sage-soft: oklch(0.92 0.018 135);
+  --destructive: oklch(0.55 0.15 28);
+  --destructive-foreground: oklch(0.98 0.005 85);
+  --border: oklch(0.875 0.014 75);
+  --input: oklch(0.85 0.014 75);
+  --ring: oklch(0.52 0.07 20);
+  --chart-1: oklch(0.52 0.07 20);
+  --chart-2: oklch(0.64 0.04 140);
+  --chart-3: oklch(0.26 0.008 60);
+  --chart-4: oklch(0.7 0.055 22);
+  --chart-5: oklch(0.8 0.03 80);
+  --sidebar: oklch(0.96 0.012 82);
+  --sidebar-foreground: oklch(0.25 0.008 60);
+  --sidebar-primary: oklch(0.26 0.008 60);
+  --sidebar-primary-foreground: oklch(0.973 0.011 84);
+  --sidebar-accent: oklch(0.93 0.02 30);
+  --sidebar-accent-foreground: oklch(0.3 0.03 25);
+  --sidebar-border: oklch(0.875 0.014 75);
+  --sidebar-ring: oklch(0.52 0.07 20);
+}
+
+html[lang="en"] {
+  --font-display-face: "Cormorant Garamond", "Amiri", serif;
+  --font-body-face: "Manrope", "IBM Plex Sans Arabic", system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body-face);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display-face);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  ::selection {
+    background: var(--rose-soft);
+    color: var(--ink);
+  }
+  :focus-visible {
+    outline: 1px solid var(--ring);
+    outline-offset: 3px;
+  }
+}
+
+/* Small uppercase label used for numbered section headings */
+@utility eyebrow {
+  font-family: var(--font-body-face);
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  html[lang="ar"] & {
+    letter-spacing: 0.02em;
+    font-size: 0.8125rem;
+  }
+}
+
+/* Underline that draws in on hover — direction-aware */
+@utility link-draw {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  transition: background-size 0.35s ease;
+  padding-bottom: 2px;
+  [dir="ltr"] & {
+    background-position: 0% 100%;
+  }
+  &:hover,
+  &[aria-current="page"] {
+    background-size: 100% 1px;
+  }
+}
+
+@utility hairline {
+  border-color: var(--border);
+  border-width: 0;
+  border-top-width: 1px;
+}
+
+@utility img-reveal {
+  animation: img-fade 0.8s ease both;
+}
+
+@utility container-ed {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 1320px;
+  padding-inline: 1.25rem;
+  @media (width >= 768px) {
+    padding-inline: 2.5rem;
+  }
+}
+
+@keyframes img-fade {
+  from {
+    opacity: 0;
+    transform: scale(1.015);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* PageLoader line loop */
+@keyframes line-draw-loop {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  48% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  52% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
+/* PageLoader letter soft pulse */
+@keyframes letter-breathe {
+  0%,
+  100% {
+    opacity: 0.65;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Top navigation progress bar */
+@keyframes top-progress {
+  0% {
+    width: 0%;
+  }
+  20% {
+    width: 35%;
+  }
+  60% {
+    width: 75%;
+  }
+  100% {
+    width: 95%;
+  }
+}
+
+/* Marquee continuous scroll */
+@keyframes marquee-ltr {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-rtl {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-ltr 28s linear infinite;
+}
+
+[dir="rtl"] .animate-marquee {
+  animation-name: marquee-rtl;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Splash line draw */
+@keyframes splash-line {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes splash-letter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ZEKRA Brand Logo Animations */
+@keyframes logo-letter-in {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes logo-line-draw {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.animate-logo-letter {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+  animation: logo-letter-in 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-logo-line {
+  transform-origin: center;
+  animation: logo-line-draw 600ms cubic-bezier(0.16, 1, 0.3, 1) 350ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .animate-logo-letter {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  .animate-logo-line {
+    animation: none !important;
+    transform: scaleX(1) !important;
+    opacity: 1 !important;
+  }
+  .animate-ken-burns {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Ken Burns slow zoom for editorial Hero */
+@keyframes hero-ken-burns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.06);
+  }
+}
+
+.animate-ken-burns {
+  animation: hero-ken-burns 12s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
